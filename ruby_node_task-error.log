@@ -1,0 +1,11 @@
+TypeError: runTask is not a function
+    at DestroyableTransform.receiveMsg (/Users/jonathan.canaveral/.rvm/gems/ruby-2.5.1@addportal/gems/node_task-0.3.5/lib/node_task/nodeTask.js:60:5)
+    at emitOne (events.js:115:13)
+    at DestroyableTransform.emit (events.js:210:7)
+    at DestroyableTransform.<anonymous> (/Users/jonathan.canaveral/.rvm/gems/ruby-2.5.1@addportal/gems/node_task-0.3.5/lib/node_task/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js:786:14)
+    at emitNone (events.js:105:13)
+    at DestroyableTransform.emit (events.js:207:7)
+    at emitReadable_ (/Users/jonathan.canaveral/.rvm/gems/ruby-2.5.1@addportal/gems/node_task-0.3.5/lib/node_task/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js:448:10)
+    at emitReadable (/Users/jonathan.canaveral/.rvm/gems/ruby-2.5.1@addportal/gems/node_task-0.3.5/lib/node_task/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js:444:5)
+    at readableAddChunk (/Users/jonathan.canaveral/.rvm/gems/ruby-2.5.1@addportal/gems/node_task-0.3.5/lib/node_task/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js:187:9)
+    at DestroyableTransform.Readable.push (/Users/jonathan.canaveral/.rvm/gems/ruby-2.5.1@addportal/gems/node_task-0.3.5/lib/node_task/node_modules/ndjson/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js:149:10)

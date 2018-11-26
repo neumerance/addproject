@@ -1,21 +1,14 @@
-var args = process.argv.slice(2);
 var N = require('../../licode/nuve');
-
-N.API.init(args[0], args[1], args[2]);
-
-var room = {
-  name: args[3],
-  description: args[4] || '',
-  p2p: args[5] || false
+module.exports = function(opts, done) {
+  N.API.init(opts.service_id, opts.service_key, opts.nuve_host);
+  N.API.createRoom(opts.params.room_name || 'default-'+new Date().getTime(), function(room) {
+    done(null, { room: room });
+  }, function(e) {
+    done(null, { errors: e })
+  }, {
+    data: {
+      room_description: opts.params.description || ''
+    },
+    p2p: opts.params.p2p || false
+  });
 }
-
-N.API.createRoom(room.name, function(room) {
-  console.log('Room created with id: ', room._id);
-}, function(e) {
-  console.log('error: ', e)
-}, {
-  data: {
-    room_description: room.description
-  },
-  p2p: room.p2p
-});

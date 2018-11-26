@@ -67,3 +67,6 @@ gem 'react-rails'
 
 # rails config handler
 gem 'figaro'
+
+# nodejs execute
+gem 'node_task'

@@ -7,23 +7,14 @@ module Licode
       @nuve_host = Figaro.env.nuve_host
     end
 
-    def list(args = {})
-      fork do
-        exec(
-          'node', Rails.root.join('app/javascript/packs/licode_api/rooms/list.js').to_s, 
-          service_id, service_key, nuve_host
-        )
-      end
+    def list
+      t = NodeTask.new(Rails.root.join('app/javascript/packs/licode_api/rooms/list').to_s)
+      t.run(service_id: service_id, service_key: service_key, nuve_host: nuve_host)
     end    
 
     def create(args = {})
-      fork do 
-        exec(
-          'node', Rails.root.join('app/javascript/packs/licode_api/rooms/create.js').to_s, 
-          service_id, service_key, nuve_host,
-          args[:name], args[:description] || '', args[:p2p] || false
-        ) 
-      end
+      t = NodeTask.new(Rails.root.join('app/javascript/packs/licode_api/rooms/create').to_s)
+      t.run(service_id: service_id, service_key: service_key, nuve_host: nuve_host, params: args)
     end
   end
 end
