@@ -23,8 +23,8 @@ module Licode
       request('destroy', default_args.merge(room_id: room_id))
     end
 
-    def create_token(room_id = '')
-      request('create_token', default_args.merge(room_id: room_id))
+    def create_token(args = {})
+      request('create_token', default_args.merge(params: args))
     end
 
     def get_users(room_id = '')
