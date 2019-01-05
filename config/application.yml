@@ -1,6 +1,6 @@
 default: &default
-  service_id: 5c2ffdf5c7d01bde81a18bb3
-  service_key: 11707
+  service_id: 5c3083c8b43d2dd02231eafe
+  service_key: 19191
   nuve_host: http://localhost:3000/
   DB_HOST: localhost
   DB_USER: root
