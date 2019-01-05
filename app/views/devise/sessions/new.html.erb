@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="login-form">
+    <div class="main-div">
+      <div class="panel">
+        <h2>ADD project</h2>
+        <% if flash.present? %>
+          <%= render partial: 'layouts/shared/flash', locals: { alert: 'danger' } %>
+        <% else %>
+          <p>Please enter your email and password</p>
+        <% end %>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), id: 'Login') do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true,
+                            autocomplete: "email",
+                            class: 'form-control',
+                            id: 'inputEmail',
+                            placeholder: 'Email Address' %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "current-password",
+                               class: 'form-control',
+                               id: 'inputPassword',
+                               placeholder: 'Password' %>
+        </div>
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

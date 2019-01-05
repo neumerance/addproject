@@ -72,3 +72,6 @@ gem 'figaro'
 
 # nodejs execute
 gem 'node_task'
+
+# for user authentication
+gem 'devise'
