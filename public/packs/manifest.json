@@ -1,0 +1,22 @@
+{
+  "application.js": "/packs/application-591b9e41ad947b167628.js",
+  "application.js.map": "/packs/application-591b9e41ad947b167628.js.map",
+  "hello_react.js": "/packs/hello_react-838889544c68a091ecc5.js",
+  "hello_react.js.map": "/packs/hello_react-838889544c68a091ecc5.js.map",
+  "licode/nuve.js": "/packs/licode/nuve-a3892ce4b0ee3727f370.js",
+  "licode/nuve.js.map": "/packs/licode/nuve-a3892ce4b0ee3727f370.js.map",
+  "licode_api/rooms/create.js": "/packs/licode_api/rooms/create-4ef8935ccc906673ef7a.js",
+  "licode_api/rooms/create.js.map": "/packs/licode_api/rooms/create-4ef8935ccc906673ef7a.js.map",
+  "licode_api/rooms/create_token.js": "/packs/licode_api/rooms/create_token-91794f2ecd10f649f0ed.js",
+  "licode_api/rooms/create_token.js.map": "/packs/licode_api/rooms/create_token-91794f2ecd10f649f0ed.js.map",
+  "licode_api/rooms/destroy.js": "/packs/licode_api/rooms/destroy-5e5a8936dacd8233a792.js",
+  "licode_api/rooms/destroy.js.map": "/packs/licode_api/rooms/destroy-5e5a8936dacd8233a792.js.map",
+  "licode_api/rooms/get_users.js": "/packs/licode_api/rooms/get_users-fa32d39a7504c75ffb2f.js",
+  "licode_api/rooms/get_users.js.map": "/packs/licode_api/rooms/get_users-fa32d39a7504c75ffb2f.js.map",
+  "licode_api/rooms/list.js": "/packs/licode_api/rooms/list-049966b3e1c2f29d7e6b.js",
+  "licode_api/rooms/list.js.map": "/packs/licode_api/rooms/list-049966b3e1c2f29d7e6b.js.map",
+  "licode_api/rooms/show.js": "/packs/licode_api/rooms/show-c7bdfe9044b9838bcbc1.js",
+  "licode_api/rooms/show.js.map": "/packs/licode_api/rooms/show-c7bdfe9044b9838bcbc1.js.map",
+  "server_rendering.js": "/packs/server_rendering-fb60f6f3651029016cf8.js",
+  "server_rendering.js.map": "/packs/server_rendering-fb60f6f3651029016cf8.js.map"
+}

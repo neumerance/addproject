@@ -1,0 +1,15 @@
+default: &default
+  service_id: 5c2ffdf5c7d01bde81a18bb3
+  service_key: 11707
+  nuve_host: http://localhost:3000/
+  DB_HOST: localhost
+  DB_USER: root
+  DB_PASSWORD:
+  DB_NAME: add_project_development
+
+development:
+  <<: *default
+  
+test:
+  <<: *default
+  DB_NAME: add_project_test
