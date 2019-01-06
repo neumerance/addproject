@@ -39,3 +39,5 @@ yarn-debug.log*
 /config/application.yml
 ./idea
 ./tmp
+config/database.yml
+config/application.yml
