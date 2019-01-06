@@ -1,2 +1,4 @@
-export const FETCH_ROOMS = 'FETCH_ROOMS'
-export const SET_ROOMS = 'SET_ROOMS'
+export const LOBBY_FETCH_ROOMS            = 'LOBBY_FETCH_ROOMS';
+export const LOBBY_SET_ROOMS              = 'LOBBY_SET_ROOMS';
+export const LOBBY_UPDATE_PROPS           = 'LOBBY_UPDATE_PROPS';
+export const LOBBY_SET_CREATE_ROOM_PARAMS = 'LOBBY_SET_CREATE_ROOM_PARAMS';

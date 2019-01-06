@@ -1,8 +1,16 @@
 import React        from "react";
 import { connect }  from 'react-redux';
-import { Table }    from 'reactstrap';
+import {
+  Table,
+  Button
+}                   from 'reactstrap';
 import PropTypes    from 'prop-types';
-import { getRooms } from '../../actions/Lobby'
+import {
+  getRooms,
+  toggleCreate,
+  deleteRoom
+}                    from '../../actions/Lobby';
+import Confirm      from '../shared/Confirm';
 
 class RoomList extends React.Component {
   componentDidMount() {
@@ -11,40 +19,66 @@ class RoomList extends React.Component {
 
   render() {
     return (
-      <Table>
-        <thead>
+      <div>
+        <div className="d-flex justify-content-between mb-2">
+          <h4>Channels</h4>
+          <Button color={'warning'} size={'sm'} onClick={this.toggle}>New Room</Button>
+        </div>
+        <Table borderless size="sm">
+          <thead>
           <tr>
             <th>Channel</th>
             <th>Description</th>
             <th></th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           {this.renderRooms()}
-        </tbody>
-      </Table>
+          </tbody>
+        </Table>
+      </div>
     )
   }
 
   renderRooms() {
-    return this.props.rooms.map(room => {
+    if (!this.props.rooms.length) {
       return (
-        <tr>
+        <tr><td colSpan={3} className={'text-center'}>No room available yet.</td></tr>
+      )
+    }
+    return this.props.rooms.map((room, key) => {
+      return (
+        <tr key={`room_${key}`}>
           <td>
             {room.name}
           </td>
           <td>
-            {room.data.description}
+            {room.data.room_description}
+          </td>
+          <td>
+            <Confirm message={`Are you sure you want to delete ${room.name}`} confirm={() => {this.delete(room._id)}}>
+              <Button size={'xs'} color={'danger'}>Delete</Button>
+            </Confirm>
           </td>
         </tr>
       )
     });
   }
+
+  toggle = () => {
+    this.props.toggleCreate(true);
+  };
+
+  delete = (room_id) => {
+    this.props.deleteRoom({room_id: room_id});
+  };
 }
 
 RoomList.propTypes = {
-  rooms:    PropTypes.array.isRequired,
-  getRooms: PropTypes.func.isRequired,
+  rooms:        PropTypes.array.isRequired,
+  getRooms:     PropTypes.func.isRequired,
+  toggleCreate: PropTypes.func.isRequired,
+  deleteRoom:   PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -52,4 +86,8 @@ const mapStateToProps = state => ({
   loading:  state.lobby.loading
 });
 
-export default connect(mapStateToProps, { getRooms })(RoomList);
+export default connect(mapStateToProps, {
+  getRooms,
+  toggleCreate,
+  deleteRoom
+})(RoomList);

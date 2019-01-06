@@ -14,7 +14,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body id="<%= params[:controller] == 'devise/sessions' ? 'LoginForm' : '' %>">
+  <body class="app">
     <%= yield %>
   </body>
 </html>

@@ -1,7 +1,28 @@
-body {
+@import 'react-toastify/dist/ReactToastify';
+@import 'react-toggle/style';
+
+.app {
+  font-size: .75rem;
+  color: #757575;
   background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding: 10px;
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+  border: none;
+}
+
+.btn-xs {
+  padding: .25rem .3rem !important;
+  font-size: .175rem !important;
+  line-height: 1.5 !important;
+  border-radius: .2rem !important;
 }

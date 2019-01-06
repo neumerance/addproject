@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   before_action :respond_to_json
+  # before_action :restrict_to_admin_only, only: [:create, :destroy]
 
   def index
     render json: client.list
@@ -12,11 +13,13 @@ class RoomsController < ApplicationController
   end
 
   def create
-    render json: client.create(params[:room])
+    client.create(params[:room])
+    render json: client.list
   end
 
   def destroy
-    render json: client.destroy(params[:id])
+    client.destroy(params[:id])
+    render json: client.list
   end
 
   def create_token

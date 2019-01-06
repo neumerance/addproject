@@ -9,6 +9,8 @@
     "react-dom": "^16.6.3",
     "react-redux": "^5.0.7",
     "react-router-redux": "^5.0.0-alpha.9",
+    "react-toastify": "^4.5.2",
+    "react-toggle": "^4.0.2",
     "react_ujs": "^2.4.4",
     "reactstrap": "^7.0.2",
     "redux": "^4.0.0",
