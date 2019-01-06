@@ -2,61 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b00a5e5c-7200-4eb5-b692-96e28ddc0880" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/login.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/rooms_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/rooms_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/actions/Lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/actions/Lobby.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/lobby/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/lobby/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/lobby/RoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/lobby/RoomList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/constants/Lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/constants/Lobby.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/licode_api/rooms/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/licode_api/rooms/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/reducers/Lobby.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/reducers/Lobby.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-3d29bf150b883f4da576.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-3d29bf150b883f4da576.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-3e2435d653c2cdb472f5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-3e2435d653c2cdb472f5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-591b9e41ad947b167628.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-591b9e41ad947b167628.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-9a65d1b5ffb16e7b8d52.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-9a65d1b5ffb16e7b8d52.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-b356b3abf6e7a7332678.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-b356b3abf6e7a7332678.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-e17f25ee4c3e545bda4a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/application-e17f25ee4c3e545bda4a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-0189a21dacf5de65959b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-0189a21dacf5de65959b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-1abb0bb0bc840320a67d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-1abb0bb0bc840320a67d.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-51bbede7ab71382afdc4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-51bbede7ab71382afdc4.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-7162cbf121decf98cff5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-7162cbf121decf98cff5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-838889544c68a091ecc5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-838889544c68a091ecc5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-aca5789dfd8a167cc178.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/hello_react-aca5789dfd8a167cc178.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/packs/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-0ddb30ab7cf0e7217038.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-0ddb30ab7cf0e7217038.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-5e6b037c347bb7a72d88.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-5e6b037c347bb7a72d88.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-7c3ca311113768172d12.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-7c3ca311113768172d12.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-9c01982c4d4c33b4e2e1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-9c01982c4d4c33b4e2e1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-f7166227b9bc5b2eac82.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-f7166227b9bc5b2eac82.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-fb60f6f3651029016cf8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/server_rendering-fb60f6f3651029016cf8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruby_node_task.pid" beforeDir="false" afterPath="$PROJECT_DIR$/ruby_node_task.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -74,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/javascript/components/lobby/RoomList.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="127">
@@ -82,6 +29,15 @@
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -169,7 +125,6 @@
         <option value="$PROJECT_DIR$/app/javascript/packs/licode/client.js" />
         <option value="$PROJECT_DIR$/app/javascript/packs/licode/room_client.js" />
         <option value="$PROJECT_DIR$/app/javascript/reducers/index.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/javascript/packs/licode_api/rooms/create.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/db/migrate/20190106061332_local.rb" />
@@ -188,6 +143,7 @@
         <option value="$PROJECT_DIR$/app/javascript/actions/Lobby.js" />
         <option value="$PROJECT_DIR$/app/javascript/components/shared/Confirm.js" />
         <option value="$PROJECT_DIR$/app/javascript/components/lobby/RoomList.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -405,17 +361,18 @@
       <workItem from="1546395028730" duration="46000" />
       <workItem from="1546648411366" duration="6963000" />
       <workItem from="1546683222702" duration="4354000" />
-      <workItem from="1546740970944" duration="15062000" />
+      <workItem from="1546740970944" duration="15119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27645000" />
+    <option name="totallyTimeSpent" value="27702000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26979" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26979" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -428,7 +385,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3294509" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3294509" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3294509" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -461,6 +418,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/javascript/components/lobby/RoomList.js</url>
+          <line>51</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/javascript/components/room/Main.js">
@@ -577,13 +546,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml.sample">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/javascript/packs/licode/room_client.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -741,6 +703,13 @@
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
         </state>
       </provider>
     </entry>
