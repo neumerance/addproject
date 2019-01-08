@@ -37,8 +37,9 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
-./idea
+.idea/
 ./tmp
 config/database.yml
 config/application.yml
 public/packs
+
