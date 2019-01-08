@@ -50,7 +50,7 @@ class RoomList extends React.Component {
       return (
         <tr key={`room_${key}`}>
           <td>
-            {room.name}
+            <a href={`/rooms/${room._id}`}>{room.name}</a>
           </td>
           <td>
             {room.data.room_description}

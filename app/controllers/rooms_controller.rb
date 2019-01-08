@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, except: []
+  respond_to :json, except: [:show]
   
-  before_action :respond_to_json
   # before_action :restrict_to_admin_only, only: [:create, :destroy]
 
   def index
@@ -9,7 +9,10 @@ class RoomsController < ApplicationController
   end
 
   def show
-    render json: client.show(params[:id])
+    respond_to do |format|
+      format.html {}
+      format.json { render json: client.show(params[:id]) }
+    end
   end
 
   def create
@@ -34,9 +37,5 @@ class RoomsController < ApplicationController
 
   def client
     @client ||= Licode::Room.new
-  end
-
-  def respond_to_json
-    respond_to :json
   end
 end
