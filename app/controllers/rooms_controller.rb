@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
   end
 
   def create_token
-    render json: client.create_token(params[:id])
+    render json: client.create_token(params)
   end
 
   def get_users

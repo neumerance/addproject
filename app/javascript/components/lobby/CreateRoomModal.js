@@ -26,17 +26,25 @@ class CreateRoomModal extends React.Component {
         <ModalBody>
           <FormGroup>
             <Label>Name</Label>
-            <Input type="text" placeholder="Name of the room" onChange={(e) => { this.setParams('name', e.target.value) }} />
+            <Input 
+              type="text" 
+              placeholder="Name of the room" 
+              disabled={this.props.loading}
+              onChange={(e) => { this.setParams('name', e.target.value) }} />
           </FormGroup>
           <FormGroup>
             <Label>Description</Label>
-            <Input type="textarea" onChange={(e) => { this.setParams('description', e.target.value) }} />
+            <Input 
+              type="textarea" 
+              disabled={this.props.loading}
+              onChange={(e) => { this.setParams('description', e.target.value) }} />
           </FormGroup>
           <FormGroup>
             <div className="d-flex flex-row">
               <div>
                 <Toggle
                   className="mr-2"
+                  disabled={this.props.loading}
                   defaultChecked={this.props.room_params.conference}
                   onChange={(e) => { this.setParams('conference', e.target.checked) }} />
               </div>
@@ -48,8 +56,8 @@ class CreateRoomModal extends React.Component {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={this.create} size={'sm'}>Create Room</Button>{' '}
-          <Button color="secondary" onClick={this.toggle} size={'sm'}>Cancel</Button>
+          <Button color="primary" onClick={this.create} size={'sm'} disabled={this.props.loading}>Create Room</Button>{' '}
+          <Button color="secondary" onClick={this.toggle} size={'sm'} disabled={this.props.loading}>Cancel</Button>
         </ModalFooter>
       </Modal>
     )
@@ -86,12 +94,14 @@ CreateRoomModal.propTypes = {
   createRoom:           PropTypes.func.isRequired,
   toggleCreate:         PropTypes.func.isRequired,
   creating:             PropTypes.bool.isRequired,
-  setCreateRoomParams:  PropTypes.func.isRequired
+  setCreateRoomParams:  PropTypes.func.isRequired,
+  loading:              PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
   creating:     state.lobby.creating,
   room_params:  state.lobby.room_params,
+  loading:      state.lobby.loading
 });
 
 export default connect(mapStateToProps, {

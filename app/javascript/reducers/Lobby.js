@@ -27,7 +27,8 @@ export default (state = initialState, action) => {
     case LOBBY_SET_ROOMS:
       return {
         ...state,
-        rooms: action.payload
+        rooms: action.payload,
+        loading: false
       };
     case LOBBY_UPDATE_PROPS:
       return {

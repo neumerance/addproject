@@ -93,7 +93,6 @@ class SubscriberCarousel extends Component {
 
 SubscriberCarousel.propTypes = {
   subscribers:    PropsTypes.array.isRequired,
-  room:           PropsTypes.object.isRequired,
   token:          PropsTypes.string.isRequired,
   activeIndex:    PropsTypes.number.isRequired,
   setActiveIndex: PropsTypes.func.isRequired,

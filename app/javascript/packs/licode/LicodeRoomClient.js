@@ -1,20 +1,24 @@
 export default class LicodeRoomClient {
-  // subscriberContainer
-  // it should be a selector of a DOM
-  // which newly subscribed user will be appended
-  constructor(room_token = '', user={}, localStreamContainer = '', subscriberContainer = '') {
-    this.token = room_token;
+  constructor(token = '', user={}, streamListCallback = () => {}) {
+    this.token = token;
     this.user = user;
-    this.localStream = Erizo.Stream({ audio: true, video: true, data: true });
+    this.localStream = Erizo.Stream({ 
+      audio: true, video: true, data: true, 
+      attributes: { user: user } 
+    });
     this.room = Erizo.Room({token: this.token});
-    this.subscriberContainer = $(subscriberContainer);
-    this.localStreamContainer = localStreamContainer;
+    this.streamListCallback = streamListCallback;
+    this.streams = [];
+  }
+
+  init() {
     this.localStream.addEventListener('access-accepted', () => {
       this.listenToRoomConnection();
       this.room.connect();
       this.localStream.play(self.localStreamContainer);
     });
-    this.streams = []
+    this.localStream.init();
+    return this.localStream;
   }
 
   listenToRoomConnection() {
@@ -22,13 +26,13 @@ export default class LicodeRoomClient {
     self.room.addEventListener('room-connected', (roomEvent) => {
       self.room.publish(self.localStream);
       self.subscribeToStreams(roomEvent.streams);
-      self.listenToAddedStream();
-      self.renderStreamSubscriptions();
-      self.listenToWillUnsubscribe();
+      self.streamAdded();
+      self.streamDidSubscribed();
+      self.streamDidUnsubscribe();
     });
   }
 
-  listenToAddedStream() {
+  streamAdded() {
     const self = this;
     self.room.addEventListener('stream-added', (streamEvent) => {
       const streams = [];
@@ -37,30 +41,20 @@ export default class LicodeRoomClient {
     });
   }
 
-  renderStreamSubscriptions() {
+  streamDidSubscribed() {
     const self = this;
     self.room.addEventListener('stream-subscribed', (streamEvent) => {
       const stream = streamEvent.stream;
-      const div = document.createElement('div');
-      const id = `subscriber-${stream.getID()}`
-      div.setAttribute('style', 'width: 320px; height: 240px;');
-      div.setAttribute('id', id);
-      self.subscriberContainer.append(div);
-      setTimeout(() => {
-        // Todo: only play streams by batch of 6 per queue in 10 sec
-        // Todo: pause those stream that are not inqueue
-        stream.play(id);
-      }, 100);
+      self.stream.push(stream);
+      self.streamListCallback(self.streams);
     });
   }
 
-  listenToWillUnsubscribe() {
+  streamDidUnsubscribe() {
     const self = this;
     self.room.addEventListener('stream-removed', (streamEvent) => {
       const stream = streamEvent.stream;
-      if (stream.elementID !== undefined) {
-        $(stream.elementID).remove();
-      }
+      // Todo: purge stream here
     });
   }
 
