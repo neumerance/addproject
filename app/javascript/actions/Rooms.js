@@ -18,7 +18,8 @@ export const initRoomClient = (streamListCallback = () => {}) => dispatch => {
   dispatch(fetchRoom(window.ROOM_ID, room => {
     dispatch(fetchRoomToken({ room_id: room._id, role: 'viewerWithData', name: window.USER.email }, token => {
       const client = new LicodeRoomClient(token, window.USER, streamListCallback);
-      dispatch({ type: ROOMS_SET_LOCAL_STREAM, payload: client.init() }); 
+      client.init();
+      dispatch({ type: ROOMS_SET_LOCAL_STREAM, payload: client.localStream }); 
       dispatch({ type: ROOMS_UPDATE_PROPS, loading: false });
     }));
   }))
@@ -57,7 +58,6 @@ export const fetchRoomToken = (params, callback = () => {}) => dispatch => {
       if (res.token) {
         dispatch({ type: ROOMS_FETCH_ROOM_TOKEN, payload: res.token });
         callback(res.token);
-        console.log('callback', callback);
       } else {
         toast.error('Unable fetch room token')
       }

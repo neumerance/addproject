@@ -12,7 +12,7 @@ const initialState = {
   token:        '',
   subscribers:  [], // items should have { id: 1, altText: 'Slide 1', caption: 'Slide 1' }
   activeIndex:  0,
-  localStream:  {},
+  localStream:  null,
   loading:      false
 }
 

@@ -3,6 +3,7 @@ import { Provider }       from 'react-redux';
 import store              from '../../store';
 import SubscriberCarousel from './SubscriberCarousel';
 import RoomClient         from './RoomClient';
+import LocalStream        from './LocalStream';
 
 class Main extends React.Component {
   render () {
@@ -20,8 +21,11 @@ class Main extends React.Component {
               </div>
             </div>
             <div className="right-col col-md-3 height-100">
-              <div className="height-40"></div>
-              <div className="height-60"></div>
+              <div className="height-40">
+                <LocalStream />
+              </div>
+              <div className="height-60">
+              </div>
             </div>
           </div>
         </div>

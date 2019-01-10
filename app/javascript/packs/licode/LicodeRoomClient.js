@@ -18,7 +18,6 @@ export default class LicodeRoomClient {
       this.localStream.play(self.localStreamContainer);
     });
     this.localStream.init();
-    return this.localStream;
   }
 
   listenToRoomConnection() {
