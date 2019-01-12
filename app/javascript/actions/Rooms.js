@@ -4,7 +4,9 @@ import {
   ROOMS_SET_SUBSCRIBERS,
   ROOMS_SET_ACTIVE_INDEX,
   ROOMS_SET_LOCAL_STREAM,
-  ROOMS_UPDATE_PROPS
+  ROOMS_RAISE_HAND,
+  ROOMS_SET_ACTIVE_STREAM,
+  ROOMS_UPDATE_PROPS,
 }                         from '../constants/Rooms';
 import { toast }          from 'react-toastify';
 import LicodeRoomClient   from '../packs/licode/LicodeRoomClient';
@@ -67,4 +69,31 @@ export const fetchRoomToken = (params, callback = () => {}) => dispatch => {
 
 export const setSubscribers = (streams = []) => dispatch => {
   dispatch({ type: ROOMS_SET_SUBSCRIBERS, payload: streams });
+}
+
+
+export const raiseHand = (stream, message = null) => dispatch => {
+  dispatch({ type: ROOMS_RAISE_HAND, payload: { stream, message } });
+}
+
+export const respondToRaiseHand = (stream) => dispatch => {
+  dispatch({ type: ROOMS_SET_ACTIVE_STREAM, payload: stream });
+}
+
+export const sendStreamData = (stream, type, data = {}) => dispatch => {
+  stream.sendData({ type: type, data: data });
+}
+
+export const receiveStreamData = () => dispatch => {
+  stream.addEventListener('stream-data', (evt) => {
+    const stream = evt.stream;
+    switch(evt.type) {
+      case ROOMS_RAISE_HAND:
+        dispatch(raiseHand(stream, evt.data.message));
+      case ROOMS_SET_ACTIVE_STREAM:
+        dispatch(respondToRaiseHand(stream));
+      case ROOMS_REMOVE_ACTIVE_STREAM:
+        dispatch({ type: ROOMS_REMOVE_ACTIVE_STREAM });
+    }
+  });
 }

@@ -4,8 +4,12 @@ import {
   ROOMS_SET_SUBSCRIBERS,
   ROOMS_SET_ACTIVE_INDEX,
   ROOMS_SET_LOCAL_STREAM,
-  ROOMS_UPDATE_PROPS
+  ROOMS_UPDATE_PROPS,
+  ROOMS_SET_ACTIVE_STREAM,
+  ROOMS_REMOVE_ACTIVE_STREAM,
+  ROOMS_RAISE_HAND
 }           from '../constants/Rooms';
+import  RaiseHandAlert  from '../components/rooms/RaiseHandAlert';
 
 const initialState = {
   room:         null,
@@ -13,7 +17,8 @@ const initialState = {
   subscribers:  [], // items should have { id: 1, altText: 'Slide 1', caption: 'Slide 1' }
   activeIndex:  0,
   localStream:  null,
-  loading:      false
+  loading:      false,
+  activeStream: null,
 }
 
 export default (state = initialState, action) => {
@@ -47,6 +52,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         ...action.payload
+      }
+    case ROOMS_RAISE_HAND:
+      toast(<RaiseHandAlert stream={payload.stream} message={payload.message} />);
+      return {
+        ...state
+      }
+    case ROOMS_SET_ACTIVE_STREAM:
+      return {
+        ...state,
+        activeStream: action.payload
+      }
+    case ROOMS_REMOVE_ACTIVE_STREAM:
+      return {
+        ...state,
+        activeStream: null
       }
     default:
       return state

@@ -1,0 +1,1 @@
+thin start -p 4000 --ssl --ssl-key-file .ssl/localhost.key --ssl-cert-file .ssl/localhost.crt
