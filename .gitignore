@@ -43,3 +43,4 @@ config/database.yml
 config/application.yml
 public/packs
 .ssl/
+ruby_node_task.pid
