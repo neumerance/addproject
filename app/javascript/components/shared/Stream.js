@@ -5,12 +5,18 @@ import { connect }    from 'react-redux';
 class Stream extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      streamID: null
+    }
   }
   
   componentWillReceiveProps(nextProps) {
-    if (this.props.stream !== nextProps.stream) {
-      if (this.props.play) {
-        this.playWithRetry();
+    const self = this;
+    if (self.props.stream !== nextProps.stream) {
+      if (self.props.play) {
+        self.setState({
+          streamID: nextProps.stream.getID()
+        }, self.playWithRetry)
       }
     }
   }
@@ -18,15 +24,14 @@ class Stream extends React.Component {
   render() {
     if (!this.props.stream) { return null }
     return (
-      <div id={`stream-${this.props.stream.getID()}`} className="height-100 border border-danger"></div>
+      <div id={this.state.streamID} className="height-100 border border-danger"></div>
     )
   }
 
   playWithRetry() {
     const self = this;
     let retry = setInterval(() => {
-      let container = self.streamContainer();
-      if (container) {
+      if (self.containerExists()) {
         self.play();
         clearInterval(retry);
       }
@@ -35,17 +40,13 @@ class Stream extends React.Component {
 
   play() {
     const self = this;
-    const cmd = setTimeout(() => {
-      self.props.stream.play(self.streamContainer());
-      clearTimeout(cmd);
-      $('#bar_local').remove();
-    }, 400);
+    setTimeout(() => {
+      self.props.stream.play(this.state.streamID);
+    }, 0);
   }
 
-  streamContainer() {
-    const container = $(`#stream-${this.props.stream.getID()}`);
-    if (!container.length) { return }
-    return `stream-${this.props.stream.getID()}`;
+  containerExists() {
+    return $(`#${this.state.streamID}`).length;
   }
 }
 

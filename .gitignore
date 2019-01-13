@@ -29,7 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/public/packs/*
 /public/packs-test
 /node_modules
 yarn-debug.log*
@@ -41,7 +40,7 @@ yarn-debug.log*
 ./tmp
 config/database.yml
 config/application.yml
-public/packs
+/public/packs/*
 .ssl/
 ruby_node_task-debug.log
 ruby_node_task.pid

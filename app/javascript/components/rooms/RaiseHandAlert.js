@@ -15,7 +15,7 @@ class RaiseHandAlert extends React.Component {
     const streamData = stream.getAttributes();
     return(
       <div onClick={this.respond}>
-        <strong>{streamData.name}</strong> is raising hand <span className="fa fa-hand-paper"></span>
+        <strong>{streamData.user.email}</strong> is raising hand <span className="fa fa-hand-paper-o"></span>
         {this.renderMessage()}
       </div>
     )

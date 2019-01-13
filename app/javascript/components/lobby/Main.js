@@ -5,7 +5,6 @@ import RoomList         from './RoomList';
 import CreateRoomModal  from './CreateRoomModal';
 import {
   ToastContainer,
-  toast
 }                    from 'react-toastify';
 
 class Main extends React.Component {

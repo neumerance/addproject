@@ -1,3 +1,4 @@
+import React            from 'react';
 import {
   ROOMS_FETCH_ROOM,
   ROOMS_FETCH_ROOM_TOKEN,
@@ -8,7 +9,8 @@ import {
   ROOMS_SET_ACTIVE_STREAM,
   ROOMS_REMOVE_ACTIVE_STREAM,
   ROOMS_RAISE_HAND
-}           from '../constants/Rooms';
+}                       from '../constants/Rooms';
+import { toast }        from 'react-toastify';
 import  RaiseHandAlert  from '../components/rooms/RaiseHandAlert';
 
 const initialState = {
@@ -54,7 +56,7 @@ export default (state = initialState, action) => {
         ...action.payload
       }
     case ROOMS_RAISE_HAND:
-      toast(<RaiseHandAlert stream={payload.stream} message={payload.message} />);
+      toast(<RaiseHandAlert stream={action.payload.stream} message={action.payload.message} />);
       return {
         ...state
       }

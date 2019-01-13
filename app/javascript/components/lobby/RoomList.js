@@ -8,7 +8,8 @@ import PropTypes    from 'prop-types';
 import {
   getRooms,
   toggleCreate,
-  deleteRoom
+  deleteRoom,
+  requestMediaAccess
 }                    from '../../actions/Lobby';
 import Confirm      from '../shared/Confirm';
 
@@ -50,14 +51,14 @@ class RoomList extends React.Component {
       return (
         <tr key={`room_${key}`}>
           <td>
-            <a href={`/rooms/${room._id}`}>{room.name}</a>
+            <a onClick={(e) => { this.showRoom(e, room._id) }}>{room.name}</a>
           </td>
           <td>
             {room.data.room_description}
           </td>
           <td>
             <Confirm message={`Are you sure you want to delete ${room.name}`} confirm={() => {this.delete(room._id)}}>
-              <Button size={'xs'} color={'danger'}>Delete</Button>
+              <Button size={'sm'} color={'danger'}>Delete</Button>
             </Confirm>
           </td>
         </tr>
@@ -72,13 +73,22 @@ class RoomList extends React.Component {
   delete = (room_id) => {
     this.props.deleteRoom({room_id: room_id});
   };
+
+  showRoom = (e, room_id) => {
+    e.preventDefault();
+    const url = `/rooms/${room_id}`;
+    this.props.requestMediaAccess(() => {
+      location.href = url;
+    })
+  }
 }
 
 RoomList.propTypes = {
-  rooms:        PropTypes.array.isRequired,
-  getRooms:     PropTypes.func.isRequired,
-  toggleCreate: PropTypes.func.isRequired,
-  deleteRoom:   PropTypes.func.isRequired,
+  rooms:              PropTypes.array.isRequired,
+  getRooms:           PropTypes.func.isRequired,
+  toggleCreate:       PropTypes.func.isRequired,
+  deleteRoom:         PropTypes.func.isRequired,
+  requestMediaAccess:  PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -89,5 +99,6 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   getRooms,
   toggleCreate,
-  deleteRoom
+  deleteRoom,
+  requestMediaAccess
 })(RoomList);

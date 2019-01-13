@@ -3,7 +3,7 @@ export default class LicodeRoomClient {
     this.token = token;
     this.user = user;
     this.localStream = Erizo.Stream({ 
-      audio: true, video: true, data: true, 
+      audio: true, video: true, data: true, videoSize: [640, 480, 640, 480],
       attributes: { user: user } 
     });
     this.room = Erizo.Room({token: this.token});
@@ -12,25 +12,32 @@ export default class LicodeRoomClient {
   }
 
   init() {
-    this.localStream.addEventListener('access-accepted', () => {
-      this.listenToRoomConnection();
-      this.room.connect();
+    const self = this;
+    self.localStream.addEventListener('access-accepted', () => {
+      self.listenToRoomEvents();
+
+      self.room.connect();
     });
-    this.localStream.init();
+    self.localStream.init();
   }
 
-  listenToRoomConnection() {
+  listenToRoomEvents() {
+    const self = this;
+    self.connectedToRoom();
+    self.streamDidAdded();
+    self.streamDidSubscribed();
+    self.streamDidUnsubscribe();
+  }
+
+  connectedToRoom() {
     const self = this;
     self.room.addEventListener('room-connected', (roomEvent) => {
-      self.room.publish(self.localStream);
-      self.subscribeToStreams(roomEvent.streams);
-      self.streamAdded();
-      self.streamDidSubscribed();
-      self.streamDidUnsubscribe();
+      self.room.publish(self.localStream, { maxVideoBW: 300 });
+      self.subscribeToStreams(roomEvent.streams);      
     });
   }
 
-  streamAdded() {
+  streamDidAdded() {
     const self = this;
     self.room.addEventListener('stream-added', (streamEvent) => {
       const streams = [];
@@ -43,7 +50,7 @@ export default class LicodeRoomClient {
     const self = this;
     self.room.addEventListener('stream-subscribed', (streamEvent) => {
       const stream = streamEvent.stream;
-      self.stream.push(stream);
+      self.streams.push(stream);
       self.streamListCallback(self.streams);
     });
   }

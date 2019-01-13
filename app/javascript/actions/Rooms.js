@@ -6,6 +6,7 @@ import {
   ROOMS_SET_LOCAL_STREAM,
   ROOMS_RAISE_HAND,
   ROOMS_SET_ACTIVE_STREAM,
+  ROOMS_REMOVE_ACTIVE_STREAM,
   ROOMS_UPDATE_PROPS,
 }                         from '../constants/Rooms';
 import { toast }          from 'react-toastify';
@@ -18,7 +19,7 @@ export const setActiveIndex = (index) => dispatch => {
 export const initRoomClient = (streamListCallback = () => {}) => dispatch => {
   dispatch({ type: ROOMS_UPDATE_PROPS, loading: true });
   dispatch(fetchRoom(window.ROOM_ID, room => {
-    dispatch(fetchRoomToken({ room_id: room._id, role: 'viewerWithData', name: window.USER.email }, token => {
+    dispatch(fetchRoomToken({ room_id: room._id, role: 'presenter', name: window.USER.email }, token => {
       const client = new LicodeRoomClient(token, window.USER, streamListCallback);
       dispatch({ type: ROOMS_SET_LOCAL_STREAM, payload: client.localStream }); 
       dispatch({ type: ROOMS_UPDATE_PROPS, loading: false });
@@ -69,10 +70,11 @@ export const fetchRoomToken = (params, callback = () => {}) => dispatch => {
 
 export const setSubscribers = (streams = []) => dispatch => {
   dispatch({ type: ROOMS_SET_SUBSCRIBERS, payload: streams });
+  dispatch(receiveStreamData(streams));
 }
 
 
-export const raiseHand = (stream, message = null) => dispatch => {
+export const raiseHand = (stream, message = '') => dispatch => {
   dispatch({ type: ROOMS_RAISE_HAND, payload: { stream, message } });
 }
 
@@ -84,16 +86,20 @@ export const sendStreamData = (stream, type, data = {}) => dispatch => {
   stream.sendData({ type: type, data: data });
 }
 
-export const receiveStreamData = () => dispatch => {
-  stream.addEventListener('stream-data', (evt) => {
-    const stream = evt.stream;
-    switch(evt.type) {
-      case ROOMS_RAISE_HAND:
-        dispatch(raiseHand(stream, evt.data.message));
-      case ROOMS_SET_ACTIVE_STREAM:
-        dispatch(respondToRaiseHand(stream));
-      case ROOMS_REMOVE_ACTIVE_STREAM:
-        dispatch({ type: ROOMS_REMOVE_ACTIVE_STREAM });
-    }
-  });
+export const receiveStreamData = (streams) => dispatch => {
+  streams.forEach(stream => {
+    stream.addEventListener("stream-data", evt => {
+      console.log('evt', evt);
+      const stream = evt.stream;
+      switch(evt.msg.type) {
+        case ROOMS_RAISE_HAND:
+          dispatch(raiseHand(stream, evt.msg.data.message));
+        case ROOMS_SET_ACTIVE_STREAM:
+          dispatch(respondToRaiseHand(stream));
+        case ROOMS_REMOVE_ACTIVE_STREAM:
+          dispatch({ type: ROOMS_REMOVE_ACTIVE_STREAM });
+      }
+    });
+    console.log(`listening to ${stream.getID()} stream data now!`);
+  })
 }

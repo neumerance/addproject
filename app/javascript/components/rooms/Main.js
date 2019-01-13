@@ -4,6 +4,9 @@ import store              from '../../store';
 import SubscriberCarousel from './SubscriberCarousel';
 import RoomClient         from './RoomClient';
 import LocalStream        from './LocalStream';
+import {
+  ToastContainer,
+}                         from 'react-toastify';
 
 class Main extends React.Component {
   render () {
@@ -11,6 +14,7 @@ class Main extends React.Component {
       <Provider store={store}>
         <div className={'height-100'}>
           <RoomClient />
+          <ToastContainer />
           <div className="row height-100">
             <div className="left-col col-md-9 height-100">
               <div className="height-80">

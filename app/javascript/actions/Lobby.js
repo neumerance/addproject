@@ -86,3 +86,15 @@ export const resetRoomParams = () => dispatch => {
     }
   });
 };
+
+
+export const requestMediaAccess = (callbackOnSuccess = () => {}) => dispatch => {
+  navigator.mediaDevices.getUserMedia({audio: true, video: true})
+  .then((stream) => {
+    callbackOnSuccess();
+  })
+  .catch((err) => {
+    console.log('requestMediaAccess: ', err);
+    toast.error('Unable to get access to you webcam and mic. Please try again');
+  });
+}
