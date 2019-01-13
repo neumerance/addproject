@@ -20,9 +20,9 @@ export const initRoomClient = (streamListCallback = () => {}) => dispatch => {
   dispatch(fetchRoom(window.ROOM_ID, room => {
     dispatch(fetchRoomToken({ room_id: room._id, role: 'viewerWithData', name: window.USER.email }, token => {
       const client = new LicodeRoomClient(token, window.USER, streamListCallback);
-      client.init();
       dispatch({ type: ROOMS_SET_LOCAL_STREAM, payload: client.localStream }); 
       dispatch({ type: ROOMS_UPDATE_PROPS, loading: false });
+      client.init();
     }));
   }))
 }

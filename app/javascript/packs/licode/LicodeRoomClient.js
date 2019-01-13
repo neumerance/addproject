@@ -15,7 +15,6 @@ export default class LicodeRoomClient {
     this.localStream.addEventListener('access-accepted', () => {
       this.listenToRoomConnection();
       this.room.connect();
-      this.localStream.play(self.localStreamContainer);
     });
     this.localStream.init();
   }

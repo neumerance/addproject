@@ -9,9 +9,9 @@ class Stream extends React.Component {
   
   componentWillReceiveProps(nextProps) {
     if (this.props.stream !== nextProps.stream) {
-      setTimeout(() => {
-        nextProps.stream.play(`stream-${nextProps.stream.getID()}`);
-      }, 1000);
+      if (this.props.play) {
+        this.playWithRetry();
+      }
     }
   }
   
@@ -20,6 +20,32 @@ class Stream extends React.Component {
     return (
       <div id={`stream-${this.props.stream.getID()}`} className="height-100 border border-danger"></div>
     )
+  }
+
+  playWithRetry() {
+    const self = this;
+    let retry = setInterval(() => {
+      let container = self.streamContainer();
+      if (container) {
+        self.play();
+        clearInterval(retry);
+      }
+    }, 400);
+  }
+
+  play() {
+    const self = this;
+    const cmd = setTimeout(() => {
+      self.props.stream.play(self.streamContainer());
+      clearTimeout(cmd);
+      $('#bar_local').remove();
+    }, 400);
+  }
+
+  streamContainer() {
+    const container = $(`#stream-${this.props.stream.getID()}`);
+    if (!container.length) { return }
+    return `stream-${this.props.stream.getID()}`;
   }
 }
 
