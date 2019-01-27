@@ -11,6 +11,7 @@ import {
   CarouselIndicators,
   CarouselCaption
 }                           from 'reactstrap';
+import Stream               from '../shared/Stream';
 
 class SubscriberCarousel extends Component {
   onExiting = () => {
@@ -42,14 +43,15 @@ class SubscriberCarousel extends Component {
 
   renderCarouseItems() {
     if (!this.props.subscribers.length) { return [this.renderEmptyCarouselItem()] }
-    return this.props.subscribers.map((item) => {
+    return this.props.subscribers.map((stream) => {
       return (
         <CarouselItem
           className="custom-tag"
           tag="div"
-          key={item.id}
+          key={stream.getID()}
         >
-          <CarouselCaption className="text-danger" captionText={item.caption} captionHeader={item.caption} />
+          <Stream stream={stream} play />
+          <CarouselCaption className="text-danger" captionText={`stream-stream.getID()`} captionHeader={stream.getAttributes().user.email} />
         </CarouselItem>
       );
     });

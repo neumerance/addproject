@@ -3,50 +3,35 @@ import PropTypes      from 'prop-types';
 import { connect }    from 'react-redux';
 
 class Stream extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      streamID: null
-    }
-  }
-  
-  componentWillReceiveProps(nextProps) {
-    const self = this;
-    if (self.props.stream !== nextProps.stream) {
-      if (self.props.play) {
-        self.setState({
-          streamID: nextProps.stream.getID()
-        }, self.playWithRetry)
-      }
-    }
-  }
-  
   render() {
     if (!this.props.stream) { return null }
+    this.playWithRetry();
     return (
-      <div id={this.state.streamID} className="height-100 border border-danger"></div>
+      <div id={this.props.stream.getID()} className="height-100 border border-danger"></div>
     )
   }
 
   playWithRetry() {
     const self = this;
     let retry = setInterval(() => {
+      console.log('self.containerExists()', self.containerExists());
       if (self.containerExists()) {
         self.play();
         clearInterval(retry);
       }
     }, 400);
+    return null;
   }
 
   play() {
     const self = this;
     setTimeout(() => {
-      self.props.stream.play(this.state.streamID);
+      self.props.stream.play(this.props.stream.getID());
     }, 0);
   }
 
   containerExists() {
-    return $(`#${this.state.streamID}`).length;
+    return $(`#${this.props.stream.getID()}`).length;
   }
 }
 
