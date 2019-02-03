@@ -1,3 +1,5 @@
+import * as  _ from 'lodash';
+
 export default class LicodeRoomClient {
   constructor(token = '', user={}, streamListCallback = () => {}) {
     this.token = token;
@@ -59,7 +61,8 @@ export default class LicodeRoomClient {
     const self = this;
     self.room.addEventListener('stream-removed', (streamEvent) => {
       const stream = streamEvent.stream;
-      // Todo: purge stream here
+      _.remove(self.streams, stream_item => { return stream === stream_item });
+      self.streamListCallback(self.streams);
     });
   }
 

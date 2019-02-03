@@ -11,6 +11,11 @@ class Stream extends React.Component {
     )
   }
 
+  componentWillUnmount() {
+    if(!this.props.stream) { return null }
+    this.props.stream.stop();
+  }
+
   playWithRetry() {
     const self = this;
     let retry = setInterval(() => {
